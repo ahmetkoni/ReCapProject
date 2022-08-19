@@ -1,6 +1,5 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
-using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,27 +9,25 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    public class CarManager : ICarService
+    public class BrandManager : IBrandService
     {
-        ICarDal _iCarDal;
-
-        public CarManager(ICarDal iCarDal )
+        IBrandDal _iBrandDal;
+        public BrandManager(IBrandDal iBrandDal)
         {
-            _iCarDal = iCarDal;
+            _iBrandDal = iBrandDal;
         }
 
-
-        public List<Car> GetAll()
+        public List<Brand> GetAll()
         {
-            return _iCarDal.GetAll();
+            return _iBrandDal.GetAll();
         }
 
-        public List<Car> GetCarByColorId()
+        public List<Brand> GetCarByColorId()
         {
             throw new NotImplementedException();
         }
 
-        public List<Car> GetCarsByBrandId()
+        public List<Brand> GetCarsByBrandId()
         {
             throw new NotImplementedException();
         }
