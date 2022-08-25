@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IBrandService
+    public interface IColorService
     {
-        List<Brand> GetAll();
-        Brand GetById(int id);  
+        List<Color> GetAll();
+        Color GetById(int id);
     }
 }

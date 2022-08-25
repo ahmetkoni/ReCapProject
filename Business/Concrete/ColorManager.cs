@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    public class BrandManager : IBrandService
+    public class ColorManager : IColorService
     {
-        IBrandDal _iBrandDal;
-        public BrandManager(IBrandDal iBrandDal)
+        IColorDal _iColorDal;
+        public ColorManager(IColorDal iColorDal)
         {
-            _iBrandDal = iBrandDal;
+            _iColorDal = iColorDal;
         }
 
-        public List<Brand> GetAll()
+        public List<Color> GetAll()
         {
-            return _iBrandDal.GetAll();
+            return _iColorDal.GetAll();
         }
 
-        public Brand GetById(int id)
+        public Color GetById(int id)
         {
             throw new NotImplementedException();
         }

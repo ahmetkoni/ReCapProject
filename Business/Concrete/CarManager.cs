@@ -19,20 +19,35 @@ namespace Business.Concrete
             _iCarDal = iCarDal;
         }
 
+        public void Add(Car car)
+        {
+            if (car.Description.Length>2&&car.DailyPrice>0)
+            {
+                _iCarDal.Add(car);
+                Console.WriteLine("Eklendi");
+            }
+            else
+            {
+                Console.WriteLine("Eklenmedi");
+            }
+        }
+
+        
 
         public List<Car> GetAll()
         {
             return _iCarDal.GetAll();
         }
+      
 
-        public List<Car> GetCarByColorId()
+        public List<Car> GetCarByBrandId(int Brandid)
         {
-            throw new NotImplementedException();
+            return _iCarDal.GetAll(c => c.BrandId == Brandid);
         }
 
-        public List<Car> GetCarsByBrandId()
+        public List<Car> GetCarByColorId(int Colorid)
         {
-            throw new NotImplementedException();
+            return _iCarDal.GetAll(c => c.ColoredId == Colorid);
         }
     }
 }

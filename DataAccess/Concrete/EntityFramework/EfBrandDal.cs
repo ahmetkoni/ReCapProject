@@ -44,9 +44,9 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (RentACarContext context = new RentACarContext())
             {
-                return null == filter
-                   ? context.Set<Brand>().ToList()
-                   :context.Set<Brand>().Where(filter).ToList();
+                return filter == null ?
+                        context.Set<Brand>().ToList()
+                        : context.Set<Brand>().Where(filter).ToList();
             }
         }
 
