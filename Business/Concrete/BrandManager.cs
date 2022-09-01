@@ -24,7 +24,7 @@ namespace Business.Concrete
 
         public Brand GetById(int id)
         {
-            throw new NotImplementedException();
+            return _iBrandDal.Get(b => b.Id == id);
         }
     }
 }

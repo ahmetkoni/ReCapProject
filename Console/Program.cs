@@ -10,7 +10,7 @@ CarTest();
 //ColorTest();
 
 
-static void BrandTest()
+ static void BrandTest()
 {
 
     BrandManager brandManager = new BrandManager(new EfBrandDal());
@@ -22,20 +22,29 @@ static void BrandTest()
 static void CarTest()
 {
     CarManager carManager = new CarManager(new EfCarDal());
-    foreach (var car in carManager.GetAll())
-    {
-        Console.WriteLine(car.ModelYear);
+    foreach (var car in carManager.GetCarDetails())
+    { 
+        Console.WriteLine(car.Id+"/"+car.ColorName);
     }
-
-    Car carTest = new Car()
-    {
-        Description = "asdagfasag",
-        DailyPrice=0,
-    };
-
-
-    carManager.Add(carTest);
 }
+
+//static void CarTest()
+//{
+//    CarManager carManager = new CarManager(new EfCarDal());
+//    foreach (var car in carManager.GetAll())
+//    {
+//        Console.WriteLine(car.ModelYear);
+//    }
+
+//    Car carTest = new Car()
+//    {
+//        Description = "asdagfasag",
+//        DailyPrice = 0,
+//    };
+
+
+//    carManager.Add(carTest);
+//}
 
 
 static void ColorTest()
