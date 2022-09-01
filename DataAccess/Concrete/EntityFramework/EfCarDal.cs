@@ -19,9 +19,18 @@ namespace DataAccess.Concrete.EntityFramework
             using (RentACarContext context = new RentACarContext())
             {
                 var result = from b in context.Cars
-                             join c in context.Colors
-                             on b.ColoredId equals c.ColorId
-                             select new CarDetailDto { Id = b.Id, ColorName=c.ColorName,};
+                             join c in context.Brands
+                             on b.BrandId equals c.BrandId
+                             join d in context.Colors
+                             on b.ColoredId equals d.ColorId
+                             select new CarDetailDto 
+                             { 
+                                 BrandName=c.BrandName,
+                                 ModelYear=b.ModelYear,
+                                 Id=b.Id,
+                                 ColorName=d.ColorName,
+                                 DailyPrice=b.DailyPrice
+                             };
                 return result.ToList();
             }
         }
